@@ -32,4 +32,6 @@
 *.app
 
 # build files
-./build/*
+/build
+
+!.gitignore
