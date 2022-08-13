@@ -1,3 +1,0 @@
-/Users/cz/CLionProjects/LearningCMake/build/CMakeFiles/test.dir
-/Users/cz/CLionProjects/LearningCMake/build/CMakeFiles/edit_cache.dir
-/Users/cz/CLionProjects/LearningCMake/build/CMakeFiles/rebuild_cache.dir
