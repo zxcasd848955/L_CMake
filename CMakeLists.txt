@@ -16,6 +16,8 @@ configure_file("${CMAKE_SOURCE_DIR}/build_config/config.h.in" "${CMAKE_CURRENT_S
 add_executable(${PROJECT_NAME} ./src/tutorial.cpp)  # all source file
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 # EXCLUDE_FROM_ALL
+
+# macro and functions
 macro(set_my_variable _INPUT)
   if("${_INPUT}" STREQUAL "Foo")
     set(my_output_variable "foo")
@@ -32,6 +34,12 @@ message(STATUS ${my_output_variable})
 # # depending on the framework, you need to link to it
 # target_link_libraries(tutorial_test gtest_main)
 
+# TODO: use valgrind: https://stackoverflow.com/questions/40325957/how-do-i-add-valgrind-tests-to-my-cmake-test-target
+# enable_testing() # use CTest extension
+# GoogleTest  https://cmake.org/cmake/help/v3.9/module/GoogleTest.html
+# add_executable(tutorial_test ./test/first_test.cpp) # GoogleTest, Boost.Test, QtTest or whatever framework you use
+# # depending on the framework, you need to link to it
+# target_link_libraries(tutorial_test gtest_main)
 # add_test(NAME tutorial_test COMMAND tutorial_test)
 
 # package and distribute
