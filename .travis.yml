@@ -1,7 +1,8 @@
+# no need
 language: cpp
 compiler:
   - gcc
-before_script:
+before_script: # 运行脚本之前的阶段
   # create a build folder for the out-of-source build
   - mkdir build
   # switch to build directory
@@ -9,7 +10,11 @@ before_script:
   # run cmake; here we assume that the project's
   # top-level CMakeLists.txt is located at '..'
   - cmake ..
+# install: 阶段
+
+# 该阶段出现失败不会终止
 script:
+
   # once CMake has done its job we just build using make as usual
   - make
   # if the project uses ctest we can run the tests like this
