@@ -1,4 +1,4 @@
-name: CMake
+name: test_github_ci
 
 on:
   push:
