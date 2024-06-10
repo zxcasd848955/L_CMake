@@ -1,21 +1,23 @@
 cmake_minimum_required(VERSION 3.10)
 project(tutorial VERSION 0.1 LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True) # before add executable
+
+
+
 set(${PROJECT_NAME}_DATA ${CMAKE_SOURCE_DIR}/data CACHE PATH "all data and sources")
 set(THIRDPARTIES_PATH ${CMAKE_SOURCE_DIR}/thirdparty CACHE PATH "3td")
 
-# profiling with gprof
-# SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
-# SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
-# SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg") 
-
 message(STATUS, "project name ${PROJECT_NAME}")
-# in-source build: CMAKE_SOURCE_DIR=CMAKE_BINARY_DIR
 configure_file("${CMAKE_SOURCE_DIR}/build_config/config.h.in" "${CMAKE_CURRENT_SOURCE_DIR}/include/config.h") 
 
-add_executable(${PROJECT_NAME} ./src/tutorial.cpp)  # all source file
-target_include_directories(${PROJECT_NAME} PUBLIC ./include)
+
+# in-source build: CMAKE_SOURCE_DIR=CMAKE_BINARY_DIR
 # EXCLUDE_FROM_ALL
+add_executable(${PROJECT_NAME} ./src/tutorial.cpp)  # all source file
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}") # configured file will be written to binary tree;
+target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 
 # macro and functions
 macro(set_my_variable _INPUT)
@@ -41,6 +43,11 @@ message(STATUS ${my_output_variable})
 # # depending on the framework, you need to link to it
 # target_link_libraries(tutorial_test gtest_main)
 # add_test(NAME tutorial_test COMMAND tutorial_test)
+
+# profiling with gprof
+# SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+# SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+# SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg") 
 
 # package and distribute
 set(CPACK_PACKAGE_NAME "tutorial_")

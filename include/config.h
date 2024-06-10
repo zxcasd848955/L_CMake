@@ -1,8 +1,8 @@
-#define tutorial_DATA "/Users/cz/CLionProjects/LearningCMake/data"
-#define THIRDPARTIES_PATH "/Users/cz/CLionProjects/LearningCMake/thirdparty"
-
 #ifndef INCLUDE_GUARD
 #define INCLUDE_GUARD
+
+#define tutorial_DATA "/Users/cz/CLionProjects/LearningCMake/data"
+#define THIRDPARTIES_PATH "/Users/cz/CLionProjects/LearningCMake/thirdparty"
 
 #define PROJECT_NAME "tutorial"
 #define PROJECT_VER  "0.1"

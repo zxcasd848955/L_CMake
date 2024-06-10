@@ -1,8 +1,8 @@
-#cmakedefine tutorial_DATA "@tutorial_DATA@"
-#cmakedefine THIRDPARTIES_PATH "@THIRDPARTIES_PATH@"
-
 #ifndef INCLUDE_GUARD
 #define INCLUDE_GUARD
+
+#cmakedefine tutorial_DATA "@tutorial_DATA@"
+#cmakedefine THIRDPARTIES_PATH "@THIRDPARTIES_PATH@"
 
 #define PROJECT_NAME "@PROJECT_NAME@"
 #define PROJECT_VER  "@PROJECT_VERSION@"
